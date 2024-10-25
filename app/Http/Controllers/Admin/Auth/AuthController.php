@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Auth\LoginRequest;
+use App\Http\Resources\Admin\Auth\ShowAdminResource;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,7 @@ class AuthController extends Controller
         return response()->json([
             'code' => 0,
             'message' => 'success',
-            'data' => $admin,
+            'data' => new ShowAdminResource($admin),
             'token' => $token
         ]);
     }
