@@ -7,9 +7,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' => 'client',
-    'auth:sanctum'
+    'middleware' => [
+        'auth:sanctum',
+        'check.type.user'
+    ]
 ], function () {
     Route::prefix('auth')->group(function () {
-        Route::post('/login', [AuthController::class, 'login']);
+        Route::post('login', [AuthController::class, 'login'])->withoutMiddleware(['auth:sanctum', 'check.type.user']);
+        Route::post('logout', [AuthController::class, 'logout']);
     });
 });
