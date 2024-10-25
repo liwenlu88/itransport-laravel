@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Middleware\CheckAdminToken;
+use App\Http\Middleware\CheckPermission;
 use App\Http\Middleware\checkUserToken;
+use App\Http\Middleware\OperationLog;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -16,7 +19,10 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'check.type.user' => checkUserToken::class,
+            'check.type.user' => CheckUserToken::class,
+            'check.type.admin' => CheckAdminToken::class,
+            'operation.log' => OperationLog::class, // 记录操作日志
+            'check.permission' => CheckPermission::class, // 权限验证
         ]);
         $middleware->append([
             //

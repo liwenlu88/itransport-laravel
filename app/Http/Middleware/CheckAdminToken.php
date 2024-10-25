@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckUserToken
+class CheckAdminToken
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,7 @@ class CheckUserToken
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user()->tokenCan('user')) {
+        if ($request->user()->tokenCan('admin')) {
             return $next($request);
         }
 
