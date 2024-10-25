@@ -41,6 +41,10 @@ class AdminController extends Controller
 
         $adminQuery = Admin::query();
 
+        if (Auth::user()->role_id != 1) {
+            $adminQuery->whereNot('id', Auth::user()->id);
+        }
+
         if (!empty($name)) {
             $adminQuery->where('name', 'like', "%$name%");
         }
@@ -118,6 +122,10 @@ class AdminController extends Controller
 
             if (empty($admin)) {
                 return Helper::dataNotFound('用户不存在或已删除');
+            }
+
+            if ($admin->role_id == 1 && Auth::user()->id != $id) {
+                return Helper::denyAccess();
             }
 
             return response()->json([

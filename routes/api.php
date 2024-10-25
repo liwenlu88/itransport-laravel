@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Auth\AdminController;
 use App\Http\Controllers\Web\Auth\AuthController as UserAuthController;
 use App\Http\Controllers\Admin\Auth\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /** 客户端 */
@@ -41,4 +42,7 @@ Route::group([
     // Admin 用户管理
     Route::get('users/options', [AdminController::class, 'options']);
     Route::resource('users', AdminController::class);
+
+    // 角色管理
+    Route::resource('roles', RoleController::class);
 });

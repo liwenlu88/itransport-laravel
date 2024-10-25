@@ -23,6 +23,11 @@ class Helper
      */
     public static function authorize(string $method): bool
     {
+        // 超级管理员拥有所有权限
+        if (Auth::user()->role_id == 1) {
+            return true;
+        }
+
         // 获取当前用户的权限
         $permissions = Auth::user()->roles->permissions;
 
@@ -62,6 +67,17 @@ class Helper
             'code' => 403,
             'message' => '禁止访问',
         ], 403);
+    }
+
+    /**
+     * 不可操作
+     */
+    public static function cannotOperate(): JsonResponse
+    {
+        return response()->json([
+            'code' => 405,
+            'message' => '不可操作',
+        ], 405);
     }
 
     /**

@@ -14,52 +14,52 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [
             [
-                'role_id' => 1,
+                'role_id' => 2,
                 'menu_id' => 1,
                 'method_id' => '1,2,3,4'
             ],
             [
-                'role_id' => 1,
+                'role_id' => 2,
                 'menu_id' => 2,
                 'method_id' => '1,2,3,4'
             ],
             [
-                'role_id' => 1,
+                'role_id' => 2,
                 'menu_id' => 3,
                 'method_id' => '1,2,3,4'
             ],
             [
-                'role_id' => 1,
+                'role_id' => 2,
                 'menu_id' => 4,
                 'method_id' => '1,2,3,4'
             ],
             [
-                'role_id' => 1,
+                'role_id' => 2,
                 'menu_id' => 5,
                 'method_id' => '1,2,3,4'
             ],
             [
-                'role_id' => 2,
+                'role_id' => 3,
                 'menu_id' => 1,
                 'method_id' => '1,2,3'
             ],
             [
-                'role_id' => 2,
+                'role_id' => 3,
                 'menu_id' => 2,
                 'method_id' => '1,2,3'
             ],
             [
-                'role_id' => 2,
+                'role_id' => 3,
                 'menu_id' => 3,
                 'method_id' => '1,2,3'
             ],
             [
-                'role_id' => 2,
+                'role_id' => 3,
                 'menu_id' => 4,
                 'method_id' => '1,2,3'
             ],
             [
-                'role_id' => 2,
+                'role_id' => 3,
                 'menu_id' => 5,
                 'method_id' => '1,2,3'
             ],
