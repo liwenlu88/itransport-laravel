@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('position_status', function (Blueprint $table) {
-            $table->comment('职位状态');
+        Schema::create('position_statuses', function (Blueprint $table) {
+            $table->comment('职位状态表');
             $table->id();
             $table->string('name', 50)->comment('状态名称');
             $table->string('description', 255)->nullable()->comment('状态描述');
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('position_status');
+        Schema::dropIfExists('position_statuses');
     }
 };
