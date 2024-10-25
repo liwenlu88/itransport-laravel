@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Policies;
+namespace App\Policies\Admin;
 
 use App\Models\OperationLog;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class OperationLogPolicy
 {

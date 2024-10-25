@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Auth;
 
-use App\Http\Requests\StoreadminRequest;
-use App\Http\Requests\UpdateadminRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Auth\StoreAdminRequest;
+use App\Http\Requests\Admin\Auth\UpdateAdminRequest;
 use App\Models\admin;
 
 class AdminController extends Controller
@@ -27,7 +28,7 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreadminRequest $request)
+    public function store(StoreAdminRequest $request)
     {
         //
     }
@@ -51,7 +52,7 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateadminRequest $request, admin $admin)
+    public function update(UpdateAdminRequest $request, admin $admin)
     {
         //
     }

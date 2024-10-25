@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\StoreMethodRequest;
-use App\Http\Requests\UpdateMethodRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Method\StoreMethodRequest;
+use App\Http\Requests\Admin\Method\UpdateMethodRequest;
 use App\Models\Method;
 
 class MethodController extends Controller

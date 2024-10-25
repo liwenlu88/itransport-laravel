@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\StoreOperationLogRequest;
-use App\Http\Requests\UpdateOperationLogRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\OperationLog\StoreOperationLogRequest;
+use App\Http\Requests\Admin\OperationLog\UpdateOperationLogRequest;
 use App\Models\OperationLog;
 
 class OperationLogController extends Controller

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\PositionStatus\StorePositionStatusRequest;
-use App\Http\Requests\PositionStatus\UpdatePositionStatusRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\PositionStatus\StorePositionStatusRequest;
+use App\Http\Requests\Admin\PositionStatus\UpdatePositionStatusRequest;
 use App\Models\PositionStatus;
 
 class PositionStatusController extends Controller

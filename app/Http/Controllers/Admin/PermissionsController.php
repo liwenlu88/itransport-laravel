@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\StorePermissionsRequest;
-use App\Http\Requests\UpdatePermissionsRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Permission\StorePermissionRequest;
+use App\Http\Requests\Admin\Permission\UpdatePermissionRequest;
 use App\Models\Permissions;
 
 class PermissionsController extends Controller
@@ -27,7 +28,7 @@ class PermissionsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePermissionsRequest $request)
+    public function store(StorePermissionRequest $request)
     {
         //
     }
@@ -51,7 +52,7 @@ class PermissionsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePermissionsRequest $request, Permissions $permissions)
+    public function update(UpdatePermissionRequest $request, Permissions $permissions)
     {
         //
     }

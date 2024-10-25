@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Web\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Web\Auth\LoginRequest;
+use App\Http\Requests\Admin\Web\Auth\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
