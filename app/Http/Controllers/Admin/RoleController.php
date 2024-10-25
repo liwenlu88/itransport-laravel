@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exceptions\DataNotFoundException;
 use App\Exceptions\NotAuthorizedException;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
@@ -17,7 +18,6 @@ use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
-
     /**
      * 只有超级管理员账户可以访问该控制器
      */
@@ -121,7 +121,7 @@ class RoleController extends Controller
             $role = Role::find($id);
 
             if (empty($role)) {
-                return Helper::dataNotFound('角色不存在或已删除');
+                throw new DataNotFoundException();
             }
 
             return response()->json([
@@ -143,7 +143,7 @@ class RoleController extends Controller
             $role = Role::find($id);
 
             if (empty($role)) {
-                return Helper::dataNotFound('角色不存在或已删除');
+                throw new DataNotFoundException();
             }
 
             return response()->json([
@@ -167,7 +167,7 @@ class RoleController extends Controller
             $role = Role::find($id);
 
             if (empty($role)) {
-                return Helper::dataNotFound('角色不存在或已删除');
+                throw new DataNotFoundException();
             }
 
             // 验证表单数据
@@ -225,7 +225,7 @@ class RoleController extends Controller
             $role = Role::find($id);
 
             if (empty($role)) {
-                return Helper::dataNotFound('角色不存在或已删除');
+                throw new DataNotFoundException();
             }
 
             DB::transaction(function () use ($role) {

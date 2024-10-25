@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
+use App\Exceptions\DataNotFoundException;
+use App\Exceptions\NotAuthorizedException;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Auth\StoreAdminRequest;
@@ -121,11 +123,11 @@ class AdminController extends Controller
             $admin = Admin::find($id);
 
             if (empty($admin)) {
-                return Helper::dataNotFound('用户不存在或已删除');
+                throw new DataNotFoundException();
             }
 
             if ($admin->role_id == 1 && Auth::user()->id != $id) {
-                return Helper::denyAccess();
+                throw new NotAuthorizedException();
             }
 
             return response()->json([
@@ -147,11 +149,11 @@ class AdminController extends Controller
             $admin = Admin::find($id);
 
             if (empty($admin)) {
-                return Helper::dataNotFound('用户不存在或已删除');
+                throw new DataNotFoundException();
             }
-            // 只有超级管理员自己可以编辑自己的信息
+            // 只有超级管理员可以编辑自己的信息
             if ($admin->role_id == 1 && Auth::user()->id != $id) {
-                return Helper::denyAccess();
+                throw new NotAuthorizedException();
             }
 
             return response()->json([
@@ -175,7 +177,7 @@ class AdminController extends Controller
             $admin = Admin::find($id);
 
             if (empty($admin)) {
-                return Helper::dataNotFound('用户不存在或已删除');
+                throw new DataNotFoundException();
             }
 
             // 记录原始数据
@@ -185,7 +187,7 @@ class AdminController extends Controller
 
             // 只有超级管理员自己可以编辑自己的信息
             if ($admin->role_id == 1 && Auth::user()->id != $admin->id) {
-                return Helper::denyAccess();
+                throw new NotAuthorizedException();
             }
 
             $admin->fill($validatedData);
@@ -204,12 +206,12 @@ class AdminController extends Controller
             $admin = Admin::find($id);
 
             if (empty($admin)) {
-                return Helper::dataNotFound('用户不存在或已删除');
+                throw new DataNotFoundException();
             }
 
             // 超级管理员账户不能删除
             if ($admin->role_id == 1) {
-                return Helper::denyAccess();
+                throw new NotAuthorizedException();
             }
 
             $admin->delete();

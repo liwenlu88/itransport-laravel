@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Exceptions\NotAuthorizedException;
 use App\Models\Menu;
 use App\Models\Method;
 use App\Models\PositionStatus;
@@ -52,46 +53,8 @@ class Helper
         if ($response->allowed()) { // 授权成功
             return $successCallback();
         } else { // 授权失败
-            return self::denyAccess();
+            throw new NotAuthorizedException();
         }
-    }
-
-    /**
-     * 禁止访问
-     *
-     * @return JsonResponse
-     */
-    public static function denyAccess(): JsonResponse
-    {
-        return response()->json([
-            'code' => 403,
-            'message' => '禁止访问',
-        ], 403);
-    }
-
-    /**
-     * 不可操作
-     */
-    public static function cannotOperate(): JsonResponse
-    {
-        return response()->json([
-            'code' => 405,
-            'message' => '不可操作',
-        ], 405);
-    }
-
-    /**
-     * 数据不存在
-     *
-     * @param string $message
-     * @return JsonResponse
-     */
-    public static function dataNotFound(string $message = '数据不存在'): JsonResponse
-    {
-        return response()->json([
-            'code' => 404,
-            'message' => $message,
-        ], 404);
     }
 
     /**

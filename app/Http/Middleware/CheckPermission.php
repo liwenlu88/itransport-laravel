@@ -2,9 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Exceptions\NotAuthorizedException;
 use App\Helpers\Helper;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class CheckPermission
@@ -16,7 +18,7 @@ class CheckPermission
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $admin = auth()->user();
+        $admin = Auth::user();
 
         // 获取角色权限
         $permissions = Helper::getRolePermissions($admin->role_id);
@@ -30,7 +32,7 @@ class CheckPermission
         });
 
         if (!$hasPermission) {
-            return Helper::denyAccess();
+            throw new NotAuthorizedException();
         }
 
         return $next($request);

@@ -4,9 +4,9 @@ namespace App\Exceptions;
 
 use Exception;
 
-class NotAuthorizedException extends Exception
+class DataNotFoundException extends Exception
 {
-    public function __construct($message = '您无权访问')
+    public function __construct($message = '不存在或已删除')
     {
         parent::__construct($message, 403);
     }
@@ -14,8 +14,8 @@ class NotAuthorizedException extends Exception
     public function render($request)
     {
         return response()->json([
-            'code' => 403,
+            'code' => 404,
             'message' => $this->getMessage()
-        ], 403);
+        ], 404);
     }
 }
