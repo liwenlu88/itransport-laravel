@@ -9,6 +9,7 @@ use App\Models\Role;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redis;
 
@@ -23,7 +24,7 @@ class Helper
     public static function authorize(string $method): bool
     {
         // 获取当前用户的权限
-        $permissions = auth('admin')->user()->roles->permissions;
+        $permissions = Auth::user()->roles->permissions;
 
         // 检查是否有对应的权限
         return $permissions->contains(function ($perm) use ($method) {

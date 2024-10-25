@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Policies\Admin;
+namespace App\Policies;
 
-use App\Models\OperationLog;
+use App\Models\Menu;
 use App\Models\User;
 
-class OperationLogPolicy
+class MenuPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -18,7 +18,7 @@ class OperationLogPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, OperationLog $operationLog): bool
+    public function view(User $user, Menu $menu): bool
     {
         //
     }
@@ -34,7 +34,7 @@ class OperationLogPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, OperationLog $operationLog): bool
+    public function update(User $user, Menu $menu): bool
     {
         //
     }
@@ -42,7 +42,7 @@ class OperationLogPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, OperationLog $operationLog): bool
+    public function delete(User $user, Menu $menu): bool
     {
         //
     }
@@ -50,7 +50,7 @@ class OperationLogPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, OperationLog $operationLog): bool
+    public function restore(User $user, Menu $menu): bool
     {
         //
     }
@@ -58,7 +58,7 @@ class OperationLogPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, OperationLog $operationLog): bool
+    public function forceDelete(User $user, Menu $menu): bool
     {
         //
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Policies\Admin;
+namespace App\Policies;
 
 use App\Helpers\Helper;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Policies\Admin;
+namespace App\Policies;
 
-use App\Models\PositionStatus;
+use App\Models\Permissions;
 use App\Models\User;
 
-class PositionStatusPolicy
+class PermissionsPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -18,7 +18,7 @@ class PositionStatusPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, PositionStatus $positionStatus): bool
+    public function view(User $user, Permissions $permissions): bool
     {
         //
     }
@@ -34,7 +34,7 @@ class PositionStatusPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, PositionStatus $positionStatus): bool
+    public function update(User $user, Permissions $permissions): bool
     {
         //
     }
@@ -42,7 +42,7 @@ class PositionStatusPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, PositionStatus $positionStatus): bool
+    public function delete(User $user, Permissions $permissions): bool
     {
         //
     }
@@ -50,7 +50,7 @@ class PositionStatusPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, PositionStatus $positionStatus): bool
+    public function restore(User $user, Permissions $permissions): bool
     {
         //
     }
@@ -58,7 +58,7 @@ class PositionStatusPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, PositionStatus $positionStatus): bool
+    public function forceDelete(User $user, Permissions $permissions): bool
     {
         //
     }

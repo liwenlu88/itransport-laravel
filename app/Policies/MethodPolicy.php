@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Policies\Admin;
+namespace App\Policies;
 
 use App\Models\Method;
 use App\Models\User;
