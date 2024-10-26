@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Permission\StorePermissionRequest;
 use App\Http\Requests\Admin\Permission\UpdatePermissionRequest;
-use App\Models\Permissions;
+use App\Models\Permission;
 
-class PermissionsController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,7 +36,7 @@ class PermissionsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Permissions $permissions)
+    public function show(Permission $permission)
     {
         //
     }
@@ -44,7 +44,7 @@ class PermissionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Permissions $permissions)
+    public function edit(Permission $permission)
     {
         //
     }
@@ -52,7 +52,7 @@ class PermissionsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePermissionRequest $request, Permissions $permissions)
+    public function update(UpdatePermissionRequest $request, Permission $permission)
     {
         //
     }
@@ -60,7 +60,7 @@ class PermissionsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Permissions $permissions)
+    public function destroy(Permission $permission)
     {
         //
     }
