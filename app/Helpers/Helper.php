@@ -8,7 +8,6 @@ use App\Models\Method;
 use App\Models\PositionStatus;
 use App\Models\Role;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;

@@ -33,7 +33,7 @@ class AdminController extends Controller
      */
     public function index(Request $request)
     {
-        $prePage = $request->input('prePage', 10);
+        $pageSize = $request->input('page_size', 10);
         $page = $request->input('page', 1);
 
         $name = $request->input('name'); // 用户名
@@ -63,7 +63,7 @@ class AdminController extends Controller
             $adminQuery->where('position_status_id', $positionStatusId);
         }
 
-        $admins = $adminQuery->paginate($prePage, ['*'], 'page', $page);
+        $admins = $adminQuery->paginate($pageSize, ['*'], 'page', $page);
 
         return response()->json([
             'code' => 0,

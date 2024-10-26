@@ -31,7 +31,7 @@ class RoleController extends Controller
      */
     public function index(Request $request)
     {
-        $prePage = $request->input('par_page', 10);
+        $pageSize = $request->input('page_size', 10);
         $page = $request->input('page', 1);
 
         $name = $request->input('name');
@@ -42,7 +42,7 @@ class RoleController extends Controller
             $roleQuery->where('name', 'like', "%$name%");
         }
 
-        $roles = $roleQuery->paginate($prePage, ['*'], 'page', $page);
+        $roles = $roleQuery->paginate($pageSize, ['*'], 'page', $page);
 
         return response()->json([
             'code' => 0,
