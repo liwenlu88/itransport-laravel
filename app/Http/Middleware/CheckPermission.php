@@ -18,10 +18,13 @@ class CheckPermission
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $admin = Auth::user();
+        // 超级管理员拥有所有权限
+        if (Auth::user()->role_id == 1) {
+            return $next($request);
+        }
 
         // 获取角色权限
-        $permissions = Helper::getRolePermissions($admin->role_id);
+        $permissions = Helper::getRolePermissions(Auth::user()->role_id);
 
         // 获取当前请求的 URL 并去掉前缀 api/
         $requestedUrl = substr($request->path(), 4);
