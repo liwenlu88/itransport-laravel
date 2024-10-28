@@ -23,7 +23,9 @@ class RoleController extends Controller
      */
     public function __construct()
     {
-        Auth::user()->role_id != 1 && throw new NotAuthorizedException();
+        if (!Auth::user()->isSuperAdmin()) {
+            throw new NotAuthorizedException();
+        }
     }
 
     /**

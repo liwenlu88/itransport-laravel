@@ -13,6 +13,9 @@ class Admin extends Model
 {
     use HasFactory, Notifiable, SoftDeletes, HasApiTokens;
 
+    const SUPER_ADMIN = 1; // 超级管理员
+    const ADMIN = 2; // 管理员
+
     protected $fillable = [
         'name',
         'contact_tel',
@@ -40,6 +43,18 @@ class Admin extends Model
     protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
+    }
+
+    // 判断当前用户是否为超级管理员
+    public function isSuperAdmin()
+    {
+        return $this->role_id == self::SUPER_ADMIN;
+    }
+
+    // 判断当前用户是否为管理员
+    public function isAdmin()
+    {
+        return $this->role_id == self::ADMIN;
     }
 
     public function roles()

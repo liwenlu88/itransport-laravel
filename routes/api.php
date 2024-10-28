@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Auth\AdminController;
 use App\Http\Controllers\Web\Auth\AuthController as UserAuthController;
 use App\Http\Controllers\Admin\Auth\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\RoleController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,4 +46,7 @@ Route::group([
 
     // 角色管理
     Route::resource('roles', RoleController::class);
+
+    // 菜单管理
+    Route::resource('menus', MenuController::class);
 });
